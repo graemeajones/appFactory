@@ -7,7 +7,7 @@ import Controller from '#root/controller/Controller.js';
 
 import schema from '../schemas/courses-schema.js';
 import modelConfig from '../models/courses-model.js';
-import database from '../database.js';
+import dbConfig from '../dbConfig.js';
 
 // Validator -------------------------------------
 
@@ -19,7 +19,7 @@ const model = new Model(modelConfig);
 
 // Data accessor ---------------------------------
 
-const accessor = new Accessor(model, database);
+const accessor = new Accessor(model, dbConfig);
 
 // Controller ------------------------------------
 
