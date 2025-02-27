@@ -1,7 +1,25 @@
+import mysql from 'mysql2/promise';
+
+const createDbConnectionPool = (databaseConfigFile) => {
+  try {
+    return mysql.createPool({
+      ...databaseConfigFile,
+      waitForConnections: true,
+      connectionLimit: 10,
+      queueLimit: 0,
+      enableKeepAlive: true,
+      keepAliveInitialDelay: 0,
+    });
+  } catch (error) {
+    console.log('Error creating database connection: ' + error.message);
+    process.exit();
+  }
+};
+
 class Accessor {
-  constructor(model, database) {
+  constructor(model, dbConfig) {
     this.model = model;
-    this.database = database;
+    this.database = createDbConnectionPool(dbConfig);
   }
 
   // Methods
