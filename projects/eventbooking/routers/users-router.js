@@ -1,7 +1,7 @@
 import { Router } from 'express';
 
 import Validator from '#root/validator/Validator.js';
-import Model from '#root/models/Model.js';
+import Model from '#root/model/Model.js';
 import Accessor from '#root/accessor/Accessor.js';
 import Controller from '#root/controller/Controller.js';
 
